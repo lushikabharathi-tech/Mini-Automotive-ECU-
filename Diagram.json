@@ -1,0 +1,135 @@
+{
+  "version": 1,
+  "author": "Mini Automotive ECU",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 100,
+      "left": 310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "potRpm",
+      "top": -15,
+      "left": 25,
+      "attrs": { "value": "300" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "potTemp",
+      "top": 95,
+      "left": 25,
+      "attrs": { "value": "490" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "potBatt",
+      "top": 205,
+      "left": 25,
+      "attrs": { "value": "850" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnIgn",
+      "top": -5,
+      "left": 650,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnFault",
+      "top": 85,
+      "left": 650,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 210,
+      "left": 660,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledFan",
+      "top": -5,
+      "left": 805,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resFan",
+      "top": 15,
+      "left": 750,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledWarn",
+      "top": 85,
+      "left": 805,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resWarn",
+      "top": 105,
+      "left": 750,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledStatus",
+      "top": 175,
+      "left": 805,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resStatus",
+      "top": 195,
+      "left": 750,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    ["potRpm:VCC", "uno:5V", "red", []],
+    ["potRpm:GND", "uno:GND.1", "black", []],
+    ["potRpm:SIG", "uno:A0", "green", []],
+
+    ["potTemp:VCC", "uno:5V", "red", []],
+    ["potTemp:GND", "uno:GND.1", "black", []],
+    ["potTemp:SIG", "uno:A1", "green", []],
+
+    ["potBatt:VCC", "uno:5V", "red", []],
+    ["potBatt:GND", "uno:GND.1", "black", []],
+    ["potBatt:SIG", "uno:A2", "green", []],
+
+    ["btnIgn:1.l", "uno:2", "green", []],
+    ["btnIgn:2.l", "uno:GND.1", "black", []],
+    ["btnFault:1.l", "uno:3", "green", []],
+    ["btnFault:2.l", "uno:GND.1", "black", []],
+
+    ["uno:8", "buzzer:1", "purple", []],
+    ["buzzer:2", "uno:GND.1", "black", []],
+
+    ["uno:9", "resFan:1", "yellow", []],
+    ["resFan:2", "ledFan:A", "yellow", []],
+    ["ledFan:C", "uno:GND.1", "black", []],
+
+    ["uno:10", "resWarn:1", "red", []],
+    ["resWarn:2", "ledWarn:A", "red", []],
+    ["ledWarn:C", "uno:GND.1", "black", []],
+
+    ["uno:11", "resStatus:1", "green", []],
+    ["resStatus:2", "ledStatus:A", "green", []],
+    ["ledStatus:C", "uno:GND.1", "black", []]
+  ],
+  "dependencies": {}
+}
